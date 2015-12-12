@@ -235,6 +235,14 @@ public class DenseVector extends AbstractVector {
   }
 
   @Override
+  public int hashCode() {
+	final int prime = 31;
+	int result = super.hashCode();
+	result = prime * result + Arrays.hashCode(values);
+	return result;
+  }
+  
+  @Override
   public boolean equals(Object o) {
     if (o instanceof DenseVector) {
       // Speedup for DenseVectors
@@ -242,6 +250,7 @@ public class DenseVector extends AbstractVector {
     }
     return super.equals(o);
   }
+
 
   public void addAll(Vector v) {
     if (size() != v.size()) {
