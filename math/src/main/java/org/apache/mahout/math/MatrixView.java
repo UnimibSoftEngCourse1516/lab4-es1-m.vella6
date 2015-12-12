@@ -34,14 +34,15 @@ public class MatrixView extends AbstractMatrix {
    * @param offset      the int[2] offset into the underlying matrix
    * @param size        the int[2] size of the view
    */
-  public MatrixView(Matrix matrix, int[] offset, int[] size) {
-    super(size[ROW], size[COL]);
+  public MatrixView(Matrix matrix, int[] newOffset, int[] newSize) {
+    super(newSize[ROW], newSize[COL]);
     int rowOffset = offset[ROW];
     if (rowOffset < 0) {
       throw new IndexException(rowOffset, rowSize());
     }
+   
 
-    int rowsRequested = size[ROW];
+    int rowsRequested = newSize[ROW];
     if (rowOffset + rowsRequested > matrix.rowSize()) {
       throw new IndexException(rowOffset + rowsRequested, matrix.rowSize());
     }
@@ -51,12 +52,12 @@ public class MatrixView extends AbstractMatrix {
       throw new IndexException(columnOffset, columnSize());
     }
 
-    int columnsRequested = size[COL];
+    int columnsRequested = newSize[COL];
     if (columnOffset + columnsRequested > matrix.columnSize()) {
       throw new IndexException(columnOffset + columnsRequested, matrix.columnSize());
     }
     this.matrix = matrix;
-    this.offset = offset;
+    this.offset = newOffset;
   }
 
   @Override
