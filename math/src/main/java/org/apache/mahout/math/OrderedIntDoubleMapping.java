@@ -47,9 +47,9 @@ public final class OrderedIntDoubleMapping implements Serializable, Cloneable {
     numMappings = 0;
   }
 
-  OrderedIntDoubleMapping(int[] indices, double[] values, int numMappings) {
-    this.indices = indices;
-    this.values = values;
+  OrderedIntDoubleMapping(int[] newIndices, double[] newValues, int numMappings) {
+    this.indices = newIndices;
+    this.values = newValues;
     this.numMappings = numMappings;
   }
 
