@@ -29,11 +29,11 @@ public class PermutedVectorView extends AbstractVector {
   private final int[] pivot;              // convert from external index to internal
   private final int[] unpivot;            // convert from internal index to external
 
-  public PermutedVectorView(Vector vector, int[] pivot, int[] unpivot) {
+  public PermutedVectorView(Vector vector, int[] newPivot, int[] newUnpivot) {
     super(vector.size());
     this.vector = vector;
-    this.pivot = pivot;
-    this.unpivot = unpivot;
+    this.pivot = newPivot;
+    this.unpivot = newUnpivot;
   }
 
   public PermutedVectorView(Vector vector, int[] pivot) {
